@@ -17,7 +17,7 @@ export const ReviewListPage = ()=>{
      //Review useEffect
     useEffect(()=>{
         const fetchBookReviews=async()=>{
-            const reviewUrl:string =`http://localhost:8080/api/reviews/search/findByBookId?bookId=${bookId}&page=${currentPage -1}&size=${reviewsPerPage}`;
+            const reviewUrl:string =`http://library-springboot-env.eba-rdqrpvgc.us-east-2.elasticbeanstalk.com/api/reviews/search/findByBookId?bookId=${bookId}&page=${currentPage -1}&size=${reviewsPerPage}`;
 
             const responseReviews=await fetch(reviewUrl);
 

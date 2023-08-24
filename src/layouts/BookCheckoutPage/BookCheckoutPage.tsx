@@ -40,7 +40,7 @@ export const BookCheckoutPage = () => {
     const [isLoadingBookCheckedOut, setIsLoadingBookCheckedOut]= useState(true)
     useEffect(() => {
         const fetchBooks = async () => {
-            const baseUrl: string = `http://localhost:8080/api/books/${bookId}`;
+            const baseUrl: string = `http://library-springboot-env.eba-rdqrpvgc.us-east-2.elasticbeanstalk.com/api/books/${bookId}`;
 
             const url: string = `${baseUrl}?page=0&size=9`;
 
@@ -79,7 +79,7 @@ export const BookCheckoutPage = () => {
     //Review useEffect
     useEffect(()=>{
         const fetchBookReviews=async()=>{
-            const reviewUrl:string =`http://localhost:8080/api/reviews/search/findByBookId?bookId=${bookId}`;
+            const reviewUrl:string =`http://library-springboot-env.eba-rdqrpvgc.us-east-2.elasticbeanstalk.com/api/reviews/search/findByBookId?bookId=${bookId}`;
 
             const responseReviews=await fetch(reviewUrl);
 
@@ -119,7 +119,7 @@ export const BookCheckoutPage = () => {
     useEffect(()=>{
         const fetchUserReviewBook = async ()=>{
             if(authState && authState.isAuthenticated){
-                const url=`http://localhost:8080/api/reviews/secure/user/book/?bookId=${bookId}`;
+                const url=`http://library-springboot-env.eba-rdqrpvgc.us-east-2.elasticbeanstalk.com/api/reviews/secure/user/book/?bookId=${bookId}`;
                 const requestOptions={
                     method:'GET',
                     headers:{
@@ -146,7 +146,7 @@ export const BookCheckoutPage = () => {
         const fetchUerCurrentLoansCount=async ()=>{
 
             if(authState &&authState.isAuthenticated){
-                const url=`http://localhost:8080/api/books/secure/currentloans/count`;
+                const url=`http://library-springboot-env.eba-rdqrpvgc.us-east-2.elasticbeanstalk.com/api/books/secure/currentloans/count`;
                 const requestOptions={
                     method:'GET',
                     headers:{
@@ -173,7 +173,7 @@ export const BookCheckoutPage = () => {
     useEffect(()=>{
         const fetchUserCheckedOutBook = async ()=>{
             if(authState &&authState.isAuthenticated){
-                const url = `http://localhost:8080/api/books/secure/ischeckedout/byuser/?bookId=${bookId}`;
+                const url = `http://library-springboot-env.eba-rdqrpvgc.us-east-2.elasticbeanstalk.com/api/books/secure/ischeckedout/byuser/?bookId=${bookId}`;
                 const requestOptions={
                     method:'GET',
                     headers:{
@@ -210,7 +210,7 @@ export const BookCheckoutPage = () => {
     }
 
     async function checkoutBook(){
-        const url=`http://localhost:8080/api/books/secure/checkout/?bookId=${book?.id}`;
+        const url=`http://library-springboot-env.eba-rdqrpvgc.us-east-2.elasticbeanstalk.com/api/books/secure/checkout/?bookId=${book?.id}`;
         const requestOptions={
             method:'PUT',
             headers:{
@@ -231,7 +231,7 @@ export const BookCheckoutPage = () => {
             bookId=book.id;
         }
         const reviewRequestModel=new ReviewRequestModel(starInput, bookId,reviewDescription);
-        const url=`http://localhost:8080/api/reviews/secure`;
+        const url=`http://library-springboot-env.eba-rdqrpvgc.us-east-2.elasticbeanstalk.com/api/reviews/secure`;
         const requestOptions={
             method:'POST',
             headers:{

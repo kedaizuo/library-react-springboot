@@ -17,7 +17,7 @@ export const ChangeQuantityOfBooks = ()=>{
     const [bookDelete, setBookDelete] = useState(false);
     useEffect(() => {
         const fetchBooks = async () => {
-            const baseUrl: string = `http://localhost:8080/api/books?page=${currentPage - 1}&size=${booksPerPage}`;
+            const baseUrl: string = `http://library-springboot-env.eba-rdqrpvgc.us-east-2.elasticbeanstalk.com/api/books?page=${currentPage - 1}&size=${booksPerPage}`;
 
             const response = await fetch(baseUrl);
 
