@@ -12,7 +12,7 @@ export const Carousel = () => {
     useEffect(()=>{
         const fetchBooks = async ()=>{
             //const baseUrl:string = "http://library-springboot-env.eba-rdqrpvgc.us-east-2.elasticbeanstalk.com/api/books";
-            const baseUrl:string = "http://localhost:8080/api/books";
+            const baseUrl:string = "http://localhost:5000/api/books";
 
             const url:string = `${baseUrl}?page=0&size=9`;
 
