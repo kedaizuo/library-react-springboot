@@ -11,7 +11,7 @@ export const PostNewMessage = ()=>{
 
 
     async function submitNewQuestion(){
-        const url = `https://library.us-east-2.elasticbeanstalk.com/api/messages/secure/add/message`;
+        const url = `https://libsummeraa.com/api/messages/secure/add/message`;
         if(authState?.isAuthenticated && title !=='' &&question!==''){
             const messageRequestModel:MessageModel = new MessageModel(title, question);
             const requestOptions={

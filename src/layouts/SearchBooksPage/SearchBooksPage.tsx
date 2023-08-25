@@ -17,7 +17,7 @@ export const SearchBooksPage=()=>{
 
     useEffect(()=>{
         const fetchBooks = async ()=>{
-            const baseUrl:string = "https://library.us-east-2.elasticbeanstalk.com/api/books";
+            const baseUrl:string = "https://libsummeraa.com/api/books";
 
             let url:string = `${baseUrl}?page=${currentPage-1}&size=${booksPerPage}`;
 
