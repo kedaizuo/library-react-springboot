@@ -21,7 +21,7 @@ export const HistoryPage = () => {
     useEffect(() => {
         const fetchUserHistory = async () => {
             if (authState && authState.isAuthenticated) {
-                const url = `http://library-springboot-env.eba-rdqrpvgc.us-east-2.elasticbeanstalk.com/api/histories/search/findByUserEmail/?userEmail=${authState.accessToken?.claims.sub}&page=${currentPage - 1}&size=5`;
+                const url = `https://library.us-east-2.elasticbeanstalk.com/api/histories/search/findByUserEmail/?userEmail=${authState.accessToken?.claims.sub}&page=${currentPage - 1}&size=5`;
                 const requestOptions = {
                     method: 'GET',
                     headers: {
