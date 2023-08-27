@@ -30,7 +30,9 @@ export const App = () => {
   }
   return (
     <div className='d-flex flex-column min-vh-100'>
-      <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUrl} onAuthRequired={customAuthHandler}>
+      <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUrl} 
+      // onAuthRequired={customAuthHandler}
+      >
       <Navbar />
       <div className='flex-grow-1'>
         <Switch>
@@ -40,20 +42,23 @@ export const App = () => {
           <Route path='/home'>
             <HomePage />
           </Route>
-          <Route path='/search' exact>
+          <SecureRoute path='/search' exact>
             <SearchBooksPage />
-          </Route>
-          <Route path='/reviewlist/:bookId'>
+          </SecureRoute>
+          <SecureRoute path='/reviewlist/:bookId'>
             <ReviewListPage/>
-          </Route>
-          <Route path='/checkout/:bookId'>
+          </SecureRoute>
+          <SecureRoute path='/checkout/:bookId'>
             <BookCheckoutPage/>
-          </Route>
-          <Route path='/login' render=
+          </SecureRoute>
+          {/* <Route path='/login' render=
           {()=><LoginWidget config={oktaConfig}/>
           }
-          />
-          <Route path='/login/callback' component={LoginCallback}/>
+          /> */}
+          <SecureRoute path='/login'>
+            <HomePage/>
+          </SecureRoute>
+          <Route path='/callback' component={LoginCallback}/>
           <SecureRoute path='/shelf'><ShelfPage/></SecureRoute>
           <SecureRoute path='/message'><MessagePage/></SecureRoute>
           <SecureRoute path='/admin'><ManageLibraryPage/></SecureRoute>
